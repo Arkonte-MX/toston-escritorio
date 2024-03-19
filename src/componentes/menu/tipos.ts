@@ -1,15 +1,26 @@
+import {
+  TipoLlamadaEvento,
+  TipoRetrollamadaEvento,
+} from '../../compartido/tipos'
+
 import { IconType } from 'react-icons'
-import { ELEMENTOS_MENU } from './constantes'
+import { VISTAS } from '../interfaz/constantes'
+
+export type TipoMenu = {
+  vista: VISTAS
+  cambiarVista: TipoRetrollamadaEvento
+  mostrarModal: TipoLlamadaEvento
+}
 
 export type TipoElementoMenu = {
   Icono: IconType
-  onClick: (parametros?: object) => void
-  es_activo: boolean
+  onClick: () => void
+  activo: boolean
   children: JSX.Element
 }
 
 export type TipoAccionMenu = {
   Icono: IconType
-  onClick: (parametros?: object) => void
-  activo: ELEMENTOS_MENU
+  onClick: () => void
+  deshabilitado: boolean
 }

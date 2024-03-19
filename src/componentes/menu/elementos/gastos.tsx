@@ -1,5 +1,5 @@
-import { ELEMENTOS_MENU } from '../constantes'
+import { VISTAS } from '../../interfaz/constantes'
 
-const Gastos = () => <button>{ELEMENTOS_MENU.GASTOS}</button>
+const Gastos = () => <button>{VISTAS.GASTOS}</button>
 
 export default Gastos

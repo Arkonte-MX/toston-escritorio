@@ -13,7 +13,7 @@ module.exports = {
   content: ['./src/**/*.tsx'],
   safelist: [
     {
-      pattern: /text-(emerald|teal|slate)-(300|600|800)/,
+      pattern: /text-(emerald|teal|slate)-(400|600|800)/,
     },
   ],
   theme: {},

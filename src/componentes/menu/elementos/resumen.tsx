@@ -1,5 +1,5 @@
-import { ELEMENTOS_MENU } from '../constantes'
+import { VISTAS } from '../../interfaz/constantes'
 
-const Resumen = () => <button>{ELEMENTOS_MENU.RESUMEN}</button>
+const Resumen = () => <button>{VISTAS.RESUMEN}</button>
 
 export default Resumen

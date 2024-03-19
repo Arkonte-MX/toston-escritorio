@@ -1,22 +1,19 @@
-import { ELEMENTOS_MENU, COLORES } from './constantes'
-import { TipoAccionMenu, TipoElementoMenu } from './tipos'
+import { TipoElementoMenu } from './tipos'
+import { VISTAS } from '../interfaz/constantes'
+import { COLORES } from './constantes'
 
-export const esElementoMenuActivo = (
-  actual: ELEMENTOS_MENU,
-  comparacion: ELEMENTOS_MENU
-) => <boolean>(actual === comparacion)
+export const esMismaVista = (vista: VISTAS, actual: VISTAS): boolean =>
+  vista === actual
 
-export const obtenerColorElementoMenu = (es_activo: boolean = false) =>
-  <string>(
-    (es_activo ? COLORES.MENU.ELEMENTO.ACTIVO : COLORES.MENU.ELEMENTO.INACTIVO)
-  )
+export const obtenerColorElementoMenu = (activo: boolean): string =>
+  activo ? COLORES.MENU.ELEMENTO.ACTIVO : COLORES.MENU.ELEMENTO.INACTIVO
+
+export const obtenerColorAccionMenu = (deshabilitado: boolean): string =>
+  deshabilitado ?
+    COLORES.MENU.ACCION.DESHABILITADA
+  : COLORES.MENU.ACCION.HABILITADA
 
 export const evitarRenderizadoElementoMenu = (
-  { es_activo: anterior }: TipoElementoMenu,
-  { es_activo: siguiente }: TipoElementoMenu
-) => <boolean>(anterior === siguiente)
-
-export const evitarRenderizadoAccionMenu = (
-  { activo: anterior }: TipoAccionMenu,
-  { activo: siguiente }: TipoAccionMenu
-) => <boolean>(anterior === siguiente)
+  { activo: anterior }: TipoElementoMenu,
+  { activo: siguiente }: TipoElementoMenu
+): boolean => anterior === siguiente
