@@ -27,7 +27,7 @@ const Interfaz = memo(({ vista, modal, ocultarModal }: TipoInterfaz) => {
           cerrar={ocultarModal}
           titulo={titulo}
           descripcion={descripcion}>
-          <Modal />
+          <Modal cerrar={ocultarModal} />
         </ContenedorModal>
       )}
     </>
