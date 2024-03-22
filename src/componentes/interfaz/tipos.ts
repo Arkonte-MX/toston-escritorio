@@ -1,4 +1,4 @@
-import { ComponentType } from 'react'
+import { ComponentType, ReactNode } from 'react'
 import { MODALES, VISTAS } from './constantes'
 import { TipoLlamadaEvento } from '../../compartido/tipos'
 
@@ -23,13 +23,15 @@ export type TipoConfiguracionModal = {
 
 export type TipoVista = {}
 
-export type TipoModal = {}
+export type TipoModal = {
+  cerrar: TipoLlamadaEvento
+}
 
 export type TipoContenedorModal = {
-  children: JSX.Element
+  children: ReactNode
   visibilidad: boolean
   cerrar: TipoLlamadaEvento
   titulo?: string
   descripcion?: string
-  botones?: JSX.Element
+  botones?: ReactNode
 }

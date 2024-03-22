@@ -39,28 +39,33 @@ const ContenedorModal = ({
         className="fixed inset-0 bg-black z-50 flex items-center justify-center"
         style={{ background: 'rgba(0, 0, 0, 0.7)' }}>
         <div className="relative bg-white opacity-100 rounded-md w-3/5 h-5/6">
-          <button
-            type="button"
-            className="absolute top-3.5 start-3.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-xs w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-            onClick={cerrar}
-            data-modal-hide="progress-modal">
-            <GiExpander />
-            <span className="sr-only">{CERRAR_MODAL}</span>
-          </button>
-          <h3 className="text-sm font-bold text-gray-900 dark:text-white text-center pt-5">
-            {titulo ?? titulo}
-          </h3>
-          <div className="pt-3 pr-4 pl-4">
-            <p
-              className={`text-gray-500 dark:text-gray-400 ${!!titulo ? '' : 'pt-5'}`}>
+          <div className="flex flex-col h-full">
+            <div className="mb-1">
+              <button
+                type="button"
+                className="absolute top-3.5 start-3.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-xs w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                onClick={cerrar}
+                data-modal-hide="progress-modal">
+                <GiExpander />
+                <span className="sr-only">{CERRAR_MODAL}</span>
+              </button>
+              <h3 className="text-sm font-bold text-gray-900 dark:text-white text-center pt-5">
+                {titulo ?? titulo}
+              </h3>
+            </div>
+
+            <blockquote
+              className={'text-gray-500 dark:text-gray-400 pl-5 pr-g'}>
               {descripcion ?? descripcion}
-            </p>
-            <div className={`w-ful h-full ${!!descripcion ? 'pt-2' : ''}`}>
+            </blockquote>
+
+            <div className="flex-grow overflow-y-auto pl-5 pr-5 mt-4">
               {children}
             </div>
-          </div>
-          <div className="absolute bottom-3 end-2.5 p-4 text-sm">
-            {botones ?? botones}
+
+            <div className="text-sm pr-5 pb-5 mt-3 flex justify-end">
+              {botones ?? botones}
+            </div>
           </div>
         </div>
       </div>

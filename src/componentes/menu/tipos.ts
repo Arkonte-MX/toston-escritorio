@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 import {
   TipoLlamadaEvento,
   TipoRetrollamadaEvento,
@@ -16,7 +18,7 @@ export type TipoElementoMenu = {
   Icono: IconType
   onClick: () => void
   activo: boolean
-  children: JSX.Element
+  children: ReactNode
 }
 
 export type TipoAccionMenu = {

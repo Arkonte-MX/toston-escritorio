@@ -13,7 +13,7 @@ import VistaGastos from '../vistas/gastos'
 import VistaDeudas from '../vistas/deudas'
 import VistaCompras from '../vistas/compras'
 
-import CrearGasto from '../modales/gasto/CrearGasto'
+import CrearGasto from '../modales/gasto/crear'
 import CrearCompra from '../modales/compra/CrearCompra'
 import ModalNoEncontrado from '../modales/404'
 

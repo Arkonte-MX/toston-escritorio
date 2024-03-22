@@ -3,7 +3,7 @@ import VistaGastos from './vistas/gastos'
 import VistaDeudas from './vistas/deudas'
 import VistaCompras from './vistas/compras'
 
-import CrearGasto from './modales/gasto/CrearGasto'
+import CrearGasto from './modales/gasto/crear'
 
 import { VISTAS, MODALES } from './constantes'
 import {
