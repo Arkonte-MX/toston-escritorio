@@ -21,7 +21,7 @@ const Interfaz = memo(({ vista, modal, ocultarModal }: TipoInterfaz) => {
   return (
     <>
       <Vista />
-      {!!Modal && (
+      {Modal && visibilidad && (
         <ContenedorModal
           visibilidad={visibilidad}
           cerrar={ocultarModal}

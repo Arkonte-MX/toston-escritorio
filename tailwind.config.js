@@ -13,7 +13,10 @@ module.exports = {
   content: ['./src/**/*.tsx'],
   safelist: [
     {
-      pattern: /text-(emerald|teal|slate)-(400|600|800)/,
+      pattern: /text-(slate|yellow|cyan|teal|rose)-(200|400|600|700|800)/,
+    },
+    {
+      pattern: /cursor-pointer/,
     },
   ],
   theme: {},

@@ -1,7 +1,16 @@
+import { TEXTO_VACIO } from '../../compartido/constantes'
+
 export const COLORES = {
   BOTON_PASO: {
-    HABILITADO: 'text-emerald-600',
+    HABILITADO: 'text-cyan-600',
     DESHABILITADO: 'text-slate-400',
+  },
+} as const
+
+export const PUNTERO = {
+  BOTON_PASO: {
+    HABILITADO: 'cursor-pointer',
+    DESHABILITADO: TEXTO_VACIO,
   },
 } as const
 
@@ -13,3 +22,8 @@ export const GROSOR_TEXTO = {
 }
 
 export const PRIMER_PASO = 0
+
+export enum BOTONES {
+  CONTINUAR = 'Continuar',
+  FINALIZAR = 'Finalizar',
+}

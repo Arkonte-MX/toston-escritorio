@@ -1,3 +1,7 @@
+export const TEXTO_VACIO = ''
+
+export const KEYDOWN = 'keydown'
+
 export const TECLAS = {
   ESCAPE: 'Escape',
   CURSOR: {
@@ -5,5 +9,3 @@ export const TECLAS = {
     DERECHO: 'ArrowRight',
   },
 } as const
-
-export const KEYDOWN = 'keydown'

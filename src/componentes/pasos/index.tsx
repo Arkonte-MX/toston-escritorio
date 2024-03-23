@@ -8,17 +8,28 @@ import {
 } from '../../compartido/utilerias'
 
 import {
-  obtenerColorBotonPaso,
-  obtenerGrosorNumeroPasoAvanzar,
-  obtenerGrosorNumeroPasoRetroceder,
+  obtenerEstiloBotonPaso,
+  obtenerConfiguracionBotonSiguiente,
+  obtenerGrosorNumeroPaso,
 } from './utilerias'
+
 import { TipoPasos } from './tipos'
 import { usePaso } from './ganchos'
+import { BotonCancelar } from '../../compartido/componentes/boton'
 
-const Pasos = ({ children, onCancel }: TipoPasos) => {
+const Pasos = ({ children, onCancel, onFinish }: TipoPasos) => {
   const [usePasoComponente, usePasoEstado] = usePaso(children)
-  const [Paso, avanzar, retroceder] = usePasoComponente()
+
+  const [Paso, avanzar, retroceder, reiniciar] = usePasoComponente()
   const [actual, puede_avanzar, puede_retroceder, total] = usePasoEstado()
+
+  const { componente: BotonSiguiente, manejador: seguir } =
+    obtenerConfiguracionBotonSiguiente(
+      puede_avanzar,
+      avanzar,
+      reiniciar,
+      onFinish
+    )
 
   useEffect(() => {
     const manejadores = registrarEventosTeclado([
@@ -46,27 +57,26 @@ const Pasos = ({ children, onCancel }: TipoPasos) => {
             <IoIosArrowBack
               size="1.8em"
               onClick={retroceder}
-              className={obtenerColorBotonPaso(puede_retroceder)}
+              className={obtenerEstiloBotonPaso(puede_retroceder)}
             />
             <div className="text-sm pt-1">
-              <span
-                className={obtenerGrosorNumeroPasoRetroceder(puede_retroceder)}>
+              <span className={obtenerGrosorNumeroPaso(puede_retroceder)}>
                 {actual}
               </span>
               <span className="m-1">/</span>
-              <span className={obtenerGrosorNumeroPasoAvanzar(puede_avanzar)}>
+              <span className={obtenerGrosorNumeroPaso(puede_avanzar)}>
                 {total}
               </span>
             </div>
             <IoIosArrowForward
               size="1.8em"
               onClick={avanzar}
-              className={obtenerColorBotonPaso(puede_avanzar)}
+              className={obtenerEstiloBotonPaso(puede_avanzar)}
             />
           </div>
           <div className="flex space-x-6">
-            <button onClick={onCancel}>Cancelar</button>
-            <button onClick={avanzar}>Continuar</button>
+            <BotonCancelar onClick={onCancel} />
+            <BotonSiguiente onClick={seguir} />
           </div>
         </div>
       </div>

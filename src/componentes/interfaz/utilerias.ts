@@ -5,7 +5,9 @@ import VistaCompras from './vistas/compras'
 
 import CrearGasto from './modales/gasto/crear'
 
+import { TEXTO_VACIO } from '../../compartido/constantes'
 import { VISTAS, MODALES } from './constantes'
+
 import {
   TipoConfiguracionModal,
   TipoConfiguracionVista,
@@ -42,7 +44,7 @@ export const obtenerConfiguracionModal = (
       [MODALES.CREAR]: {
         componente: CrearGasto,
         titulo: 'Nuevo gasto',
-        descripcion: '',
+        descripcion: TEXTO_VACIO,
       },
       [MODALES.CONSULTAR]: null,
       [MODALES.ACTUALIZAR]: null,
@@ -58,7 +60,7 @@ export const obtenerConfiguracionModal = (
       [MODALES.CREAR]: {
         componente: CrearCompra,
         titulo: 'Nueva compra planificada',
-        descripcion: '',
+        descripcion: TEXTO_VACIO,
       },
       [MODALES.CONSULTAR]: null,
       [MODALES.ACTUALIZAR]: null,

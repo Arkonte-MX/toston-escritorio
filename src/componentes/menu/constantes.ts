@@ -1,11 +1,11 @@
 export const COLORES = {
   MENU: {
     ACCION: {
-      HABILITADA: 'text-emerald-600',
+      HABILITADA: 'text-yellow-600',
       DESHABILITADA: 'text-slate-600',
     },
     ELEMENTO: {
-      ACTIVO: 'text-teal-800',
+      ACTIVO: 'text-teal-700',
       INACTIVO: 'text-slate-400',
     },
   },

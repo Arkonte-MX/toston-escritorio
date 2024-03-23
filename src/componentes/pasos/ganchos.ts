@@ -9,26 +9,30 @@ export const usePaso = (children: ReactNode): TipoGanchoPaso => {
   const [paso, setPaso] = useState<number>(PRIMER_PASO)
 
   const elementos: ReactNode[] = Children.toArray(children)
+  const actual = paso + 1
   const total: number = elementos.length
 
   const Paso: ReactNode = elementos[paso]
 
-  const puede_avanzar: boolean = total > paso + 1
+  const puede_avanzar: boolean = total > actual
   const puede_retroceder: boolean = paso > PRIMER_PASO
 
-  const avanzar: TipoLlamadaEvento = () => puede_avanzar && setPaso(paso + 1)
+  const avanzar: TipoLlamadaEvento = () => puede_avanzar && setPaso(actual)
 
   const retroceder: TipoLlamadaEvento = () =>
     puede_retroceder && setPaso(paso - 1)
+
+  const reiniciar: TipoLlamadaEvento = () => setPaso(PRIMER_PASO)
 
   const usePasoComponente: TipoComponentePaso = () => [
     Paso,
     avanzar,
     retroceder,
+    reiniciar,
   ]
 
   const usePasoEstado: TipoEstadoPaso = () => [
-    paso + 1,
+    actual,
     puede_avanzar,
     puede_retroceder,
     total,
