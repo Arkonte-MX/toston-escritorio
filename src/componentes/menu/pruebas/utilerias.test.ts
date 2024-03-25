@@ -2,7 +2,7 @@ import { createElement } from 'react'
 import { GiAbacus } from 'react-icons/gi'
 
 import { VISTAS } from '../../interfaz/constantes'
-import { COLORES } from '../constantes'
+import { COLOR } from '../constantes'
 import { TipoElementoMenu } from '../tipos'
 import {
   esMismaVista,
@@ -17,14 +17,14 @@ const VISTA_RESUMEN: VISTAS = VISTAS.RESUMEN
 const ELEMENTO_ACTIVO: boolean = true
 const ELEMENTO_INACTIVO: boolean = false
 
-const COLOR_ELEMENTO_ACTIVO: string = COLORES.MENU.ELEMENTO.ACTIVO
-const COLOR_ELEMENTO_INACTIVO: string = COLORES.MENU.ELEMENTO.INACTIVO
+const COLOR_ELEMENTO_ACTIVO: string = COLOR.MENU.ELEMENTO.ACTIVO
+const COLOR_ELEMENTO_INACTIVO: string = COLOR.MENU.ELEMENTO.INACTIVO
 
 const VISTA_ACCION_HABILITADA: boolean = false
 const VISTA_ACCION_DESHABILITADA: boolean = true
 
-const COLOR_ACCION_HABILITADA: string = COLORES.MENU.ACCION.HABILITADA
-const COLOR_ACCION_DESHABILITADA: string = COLORES.MENU.ACCION.DESHABILITADA
+const COLOR_ACCION_HABILITADA: string = COLOR.MENU.ACCION.HABILITADA
+const COLOR_ACCION_DESHABILITADA: string = COLOR.MENU.ACCION.DESHABILITADA
 
 const PERMITIR_RENDERIZADO_ELEMENTO_MENU: boolean = false
 const EVITAR_RENDERIZADO_ELEMENTO_MENU: boolean = true

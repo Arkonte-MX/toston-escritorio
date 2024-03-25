@@ -24,5 +24,5 @@ export type TipoElementoMenu = {
 export type TipoAccionMenu = {
   Icono: IconType
   onClick: () => void
-  deshabilitado: boolean
+  deshabilitada: boolean
 }

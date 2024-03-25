@@ -37,7 +37,7 @@ const Menu = ({ vista, cambiarVista, mostrarModal }: TipoMenu) => (
     <AccionMenu
       Icono={GiHealthNormal}
       onClick={mostrarModal}
-      deshabilitado={!podriaDesplegarModal(vista)}
+      deshabilitada={!podriaDesplegarModal(vista)}
     />
 
     <ElementoMenu

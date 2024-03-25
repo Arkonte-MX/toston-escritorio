@@ -2,15 +2,15 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { GiCompass } from 'react-icons/gi'
 
-import { COLORES } from '../constantes'
+import { COLOR } from '../constantes'
 
 import ElementoMenu from '../elemento'
 
 const ELEMENTO_MENU_ACTIVO: boolean = true
 const ELEMENTO_MENU_INACTIVO: boolean = false
 
-const COLOR_ELEMENTO_ACTIVO: string = COLORES.MENU.ELEMENTO.ACTIVO
-const COLOR_ELEMENTO_INACTIVO: string = COLORES.MENU.ELEMENTO.INACTIVO
+const COLOR_ELEMENTO_ACTIVO: string = COLOR.MENU.ELEMENTO.ACTIVO
+const COLOR_ELEMENTO_INACTIVO: string = COLOR.MENU.ELEMENTO.INACTIVO
 
 describe('El componente', () => {
   describe('ElementoMenu', () => {
