@@ -1,12 +1,12 @@
 import { TipoAccionMenu } from './tipos'
-import { obtenerColorAccionMenu } from './utilerias'
+import { obtenerColorAccionMenu, obtenerCursorAccionMenu } from './utilerias'
 
-const AccionMenu = ({ Icono, onClick, deshabilitado }: TipoAccionMenu) => (
+const AccionMenu = ({ Icono, onClick, deshabilitada }: TipoAccionMenu) => (
   <li
-    className={`flex flex-col items-center ${obtenerColorAccionMenu(deshabilitado)}`}>
+    className={`flex flex-col items-center ${obtenerColorAccionMenu(deshabilitada)}`}>
     <Icono
-      className="mb-1 text-3xl"
-      onClick={deshabilitado ? () => {} : onClick}
+      className={`mb-1 text-3xl ${obtenerCursorAccionMenu(deshabilitada)}`}
+      onClick={deshabilitada ? () => {} : onClick}
     />
   </li>
 )

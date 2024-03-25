@@ -1,5 +1,3 @@
-import { TEXTO_VACIO } from '../../compartido/constantes'
-
 export const COLORES = {
   BOTON_PASO: {
     HABILITADO: 'text-cyan-600',
@@ -10,7 +8,7 @@ export const COLORES = {
 export const PUNTERO = {
   BOTON_PASO: {
     HABILITADO: 'cursor-pointer',
-    DESHABILITADO: TEXTO_VACIO,
+    DESHABILITADO: 'cursor-not-allowed',
   },
 } as const
 
@@ -19,7 +17,7 @@ export const GROSOR_TEXTO = {
     HABILITADO: 'font-bold',
     DESHABILITADO: 'font-light',
   },
-}
+} as const
 
 export const PRIMER_PASO = 0
 

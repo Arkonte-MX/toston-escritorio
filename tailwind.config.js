@@ -16,7 +16,10 @@ module.exports = {
       pattern: /text-(slate|yellow|cyan|teal|rose)-(200|400|600|700|800)/,
     },
     {
-      pattern: /cursor-pointer/,
+      pattern: /cursor-(pointer|not-allowed|progress|context-menu|none)/,
+    },
+    {
+      pattern: /font-(medium|extrabold)/,
     },
   ],
   theme: {},
