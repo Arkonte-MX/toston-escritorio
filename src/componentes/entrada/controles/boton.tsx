@@ -1,36 +1,7 @@
-import { IconType } from 'react-icons'
+import { TEXTO_VACIO } from '../../../compartido/constantes'
 
-import { TEXTO_VACIO } from '../constantes'
-import { TipoLlamadaEvento } from '../tipos'
-
-export type TipoBoton = {
-  nombre: string
-  etiqueta: string
-  descripcion: string
-  onClick: TipoLlamadaEvento
-  className?: string
-  Icono?: IconType
-}
-
-export type TipoBotonContextualizado = {
-  onClick: TipoLlamadaEvento
-  nombre?: string
-  etiqueta?: string
-  descripcion?: string
-  className?: string
-  Icono?: IconType
-}
-
-const COLOR = {
-  BOTON: {
-    SENCILLO: {
-      NEUTRAL: 'text-white bg-slate-700 hover:bg-slate-600',
-      CONTINUAR: 'text-white bg-cyan-700 hover:bg-cyan-600',
-      FINALIZAR: 'text-white bg-teal-700 hover:bg-teal-600 ',
-      CANCELAR: 'text-white bg-rose-700 hover:bg-rose-600',
-    },
-  },
-} as const
+import { TIPO_BOTON, TipoBoton, TipoBotonContextualizado } from './tipos'
+import { COLOR } from '../constantes'
 
 const Boton = ({
   nombre,
@@ -39,13 +10,15 @@ const Boton = ({
   onClick,
   className = TEXTO_VACIO,
   Icono,
+  tipo = TIPO_BOTON.BOTON,
 }: TipoBoton) => (
   <button
     id={`id_boton_${nombre.trim().toLocaleLowerCase().replace(/\s/, TEXTO_VACIO)}`}
     name={nombre}
     aria-label={etiqueta}
     onClick={onClick}
-    className={`border border-slate-300 font-semibold rounded shadow py-1 px-4 ${className}`}>
+    className={`flex space-x-1 items-center border border-slate-300 font-semibold rounded shadow py-1 px-4 ${className}`}
+    type={tipo}>
     {!!Icono && <Icono />}
     <span>{nombre}</span>
     <span className="sr-only">{descripcion}</span>
@@ -103,6 +76,7 @@ export const BotonFinalizar = ({
     descripcion={descripcion}
     className={`${COLOR.BOTON.SENCILLO.FINALIZAR} ${className}`}
     Icono={Icono}
+    tipo={TIPO_BOTON.ENVIAR}
   />
 )
 
@@ -121,5 +95,6 @@ export const BotonCancelar = ({
     descripcion={descripcion}
     className={`${COLOR.BOTON.SENCILLO.CANCELAR} ${className}`}
     Icono={Icono}
+    tipo={TIPO_BOTON.REINICIAR}
   />
 )

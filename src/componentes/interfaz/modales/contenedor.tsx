@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { GiExpander } from 'react-icons/gi'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 
 import {
   registrarEventosTeclado,
@@ -43,19 +43,18 @@ const ContenedorModal = ({
             <div className="mb-1">
               <button
                 type="button"
-                className="absolute top-3.5 start-3.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-xs w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                className="absolute top-3.5 start-3.5 text-slate-400 bg-transparent hover:bg-slate-200 hover:text-slate-800 rounded-lg text-xs w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-slate-600 dark:hover:text-white"
                 onClick={cerrar}
                 data-modal-hide="progress-modal">
-                <GiExpander />
+                <IoIosCloseCircleOutline className="text-2xl" />
                 <span className="sr-only">{CERRAR_MODAL}</span>
               </button>
-              <h3 className="text-sm font-bold text-gray-900 dark:text-white text-center pt-5">
+              <h3 className="text-sm font-bold text-slate-800 dark:text-white text-center pt-5">
                 {titulo ?? titulo}
               </h3>
             </div>
 
-            <blockquote
-              className={'text-gray-500 dark:text-gray-400 pl-5 pr-g'}>
+            <blockquote className={'text-slate-400 dark:text-slate-400 px-5'}>
               {descripcion ?? descripcion}
             </blockquote>
 

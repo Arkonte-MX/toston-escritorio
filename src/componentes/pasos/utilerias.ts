@@ -2,10 +2,13 @@ import {
   BotonNeutral,
   BotonContinuar,
   BotonFinalizar,
-} from '../../compartido/componentes/boton'
+} from '../entrada/controles/boton'
+
 import { TipoLlamadaEvento } from '../../compartido/tipos'
+
 import { BOTONES, COLORES, GROSOR_TEXTO, PUNTERO } from './constantes'
 import { TipoConfiguracionBotonSiguiente } from './tipos'
+import { IoIosArrowForward, IoIosCheckmark } from 'react-icons/io'
 
 export const obtenerGrosorNumeroPaso = (habilitado: boolean = false): string =>
   habilitado ?
@@ -31,6 +34,7 @@ export const obtenerConfiguracionBotonSiguiente = (
     [BOTONES.CONTINUAR]: {
       componente: BotonContinuar,
       manejador: avanzar,
+      icono: IoIosArrowForward,
     },
     [BOTONES.FINALIZAR]: {
       componente: BotonFinalizar,
@@ -38,6 +42,7 @@ export const obtenerConfiguracionBotonSiguiente = (
         onFinish()
         reiniciar()
       },
+      icono: IoIosCheckmark,
     },
   } as const
 

@@ -16,13 +16,13 @@ export type TipoMenu = {
 
 export type TipoElementoMenu = {
   Icono: IconType
-  onClick: () => void
   activo: boolean
+  onClick: () => void
   children: ReactNode
 }
 
 export type TipoAccionMenu = {
   Icono: IconType
-  onClick: () => void
   deshabilitada: boolean
+  onClick: () => void
 }

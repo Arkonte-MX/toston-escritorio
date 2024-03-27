@@ -13,13 +13,28 @@ module.exports = {
   content: ['./src/**/*.tsx'],
   safelist: [
     {
+      pattern: /bg-(slate|yellow|cyan|teal|rose)-(200|400|600|700|800)/,
+    },
+    {
       pattern: /text-(slate|yellow|cyan|teal|rose)-(200|400|600|700|800)/,
+    },
+    {
+      pattern: /border-(slate|yellow|cyan|teal|rose)-(200|400|600|700|800)/,
+    },
+    {
+      pattern: /text-white/,
     },
     {
       pattern: /cursor-(pointer|not-allowed|progress|context-menu|none)/,
     },
     {
       pattern: /font-(medium|extrabold)/,
+    },
+    {
+      pattern: /border-(2|3)/,
+    },
+    {
+      pattern: /p(x|y)-(2|3)/,
     },
   ],
   theme: {},

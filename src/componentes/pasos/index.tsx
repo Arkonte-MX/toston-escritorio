@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+
+import { IoIosArrowBack, IoIosArrowForward, IoIosClose } from 'react-icons/io'
 
 import { TECLAS } from '../../compartido/constantes'
 import {
@@ -15,7 +16,7 @@ import {
 
 import { TipoPasos } from './tipos'
 import { usePaso } from './ganchos'
-import { BotonCancelar } from '../../compartido/componentes/boton'
+import { BotonCancelar } from '../entrada/controles/boton'
 
 const Pasos = ({ children, onCancel, onFinish }: TipoPasos) => {
   const [usePasoComponente, usePasoEstado] = usePaso(children)
@@ -23,13 +24,16 @@ const Pasos = ({ children, onCancel, onFinish }: TipoPasos) => {
   const [Paso, avanzar, retroceder, reiniciar] = usePasoComponente()
   const [actual, puede_avanzar, puede_retroceder, total] = usePasoEstado()
 
-  const { componente: BotonSiguiente, manejador: seguir } =
-    obtenerConfiguracionBotonSiguiente(
-      puede_avanzar,
-      avanzar,
-      reiniciar,
-      onFinish
-    )
+  const {
+    componente: BotonSiguiente,
+    manejador: seguir,
+    icono: Icono,
+  } = obtenerConfiguracionBotonSiguiente(
+    puede_avanzar,
+    avanzar,
+    reiniciar,
+    onFinish
+  )
 
   useEffect(() => {
     const manejadores = registrarEventosTeclado([
@@ -74,9 +78,9 @@ const Pasos = ({ children, onCancel, onFinish }: TipoPasos) => {
               className={obtenerEstiloBotonPaso(puede_avanzar)}
             />
           </div>
-          <div className="flex space-x-6">
-            <BotonCancelar onClick={onCancel} />
-            <BotonSiguiente onClick={seguir} />
+          <div className="flex space-x-3">
+            <BotonCancelar onClick={onCancel} Icono={IoIosClose} />
+            <BotonSiguiente onClick={seguir} Icono={Icono} />
           </div>
         </div>
       </div>

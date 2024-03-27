@@ -8,12 +8,12 @@ import {
 } from './utilerias'
 
 const ElementoMenu = memo(
-  ({ Icono, onClick, activo, children }: TipoElementoMenu) => (
+  ({ Icono, activo, onClick, children }: TipoElementoMenu) => (
     <li
+      onClick={onClick}
       className={`flex flex-col items-center ${obtenerColorElementoMenu(activo)}`}>
       <Icono
         className={`mb-1 text-4xl ${obtenerCursorIconoElementoMenu(activo)}`}
-        onClick={onClick}
       />
       <label className={`text-xs ${obtenerGrosorNombreElementoMenu(activo)}`}>
         {children}

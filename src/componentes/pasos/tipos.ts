@@ -1,7 +1,8 @@
 import { ComponentType, ReactNode } from 'react'
 
 import { TipoLlamadaEvento } from '../../compartido/tipos'
-import { TipoBotonContextualizado } from '../../compartido/componentes/boton'
+import { TipoBotonContextualizado } from '../entrada/controles/tipos'
+import { IconType } from 'react-icons'
 
 export type TipoPasos = {
   children: ReactNode
@@ -23,4 +24,5 @@ export type TipoGanchoPaso = [TipoComponentePaso, TipoEstadoPaso]
 export type TipoConfiguracionBotonSiguiente = {
   componente: ComponentType<TipoBotonContextualizado>
   manejador: TipoLlamadaEvento
+  icono?: IconType
 }
