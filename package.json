@@ -1,5 +1,7 @@
 {
-  "name": "toston",
+  "name": "toston-escritorio",
+  "author": "Jonathan Muñoz Lucas <arkonte.mx@outlook.com>",
+  "description": "Aplicación para la gestión financiera personal que proporciona claridad en la capacidad de pago, seguimiento de compras pendientes, periodos de pago y distribución justa de gastos.",
   "private": true,
   "version": "0.0.0",
   "scripts": {
