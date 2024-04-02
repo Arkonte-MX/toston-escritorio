@@ -3,23 +3,26 @@ import { obtenerColorBordeCampo } from '../utilerias'
 
 import { TipoCampoListaDesplegable } from './tipos'
 
-import { Campo } from './campo'
+import Campo from './campo'
 
-export const ListaDesplegable = ({
+const ListaDesplegable = ({
   campo,
   etiqueta,
-  valor,
-  error,
+  dato,
   onChange,
   children,
+  error,
+  Icono,
 }: TipoCampoListaDesplegable) => (
-  <Campo campo={campo} etiqueta={etiqueta} error={error}>
+  <Campo campo={campo} etiqueta={etiqueta} error={error} Icono={Icono}>
     <select
       name={campo}
-      value={valor}
+      value={dato}
       onChange={onChange}
       className={`bg-white ${ESTILO.CAMPO} ${obtenerColorBordeCampo(!!error)}`}>
       {children}
     </select>
   </Campo>
 )
+
+export default ListaDesplegable

@@ -4,7 +4,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io'
 import {
   registrarEventosTeclado,
   retirarEventosTeclado,
-} from '../../../compartido/utilerias'
+} from '../../../compartido/utilerias/comunes'
 
 import { TECLAS } from '../../../compartido/constantes'
 

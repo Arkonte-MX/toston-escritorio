@@ -6,7 +6,7 @@ import { TECLAS } from '../../compartido/constantes'
 import {
   registrarEventosTeclado,
   retirarEventosTeclado,
-} from '../../compartido/utilerias'
+} from '../../compartido/utilerias/comunes'
 
 import {
   obtenerEstiloBotonPaso,

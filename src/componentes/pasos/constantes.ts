@@ -1,3 +1,5 @@
+import { NUMEROS } from '../../compartido/constantes'
+
 export const COLORES = {
   BOTON_PASO: {
     HABILITADO: 'text-cyan-600',
@@ -19,7 +21,7 @@ export const GROSOR_TEXTO = {
   },
 } as const
 
-export const PRIMER_PASO = 0
+export const PRIMER_PASO = NUMEROS.CERO
 
 export enum BOTONES {
   CONTINUAR = 'Continuar',

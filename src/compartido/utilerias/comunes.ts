@@ -2,9 +2,9 @@ import {
   TipoEventoTeclado,
   TipoLlamadaEvento,
   TipoRetrollamadaEvento,
-} from './tipos'
+} from '../tipos'
 
-import { KEYDOWN } from './constantes'
+import { EVENTO } from '../constantes'
 
 const manejarEventoTeclado: TipoRetrollamadaEvento =
   (tecla: string, retrollamada: TipoLlamadaEvento) => (event) => {
@@ -18,7 +18,7 @@ export const registrarEventosTeclado = (
 
   for (const { tecla, evento } of eventosTeclado) {
     const manejador = manejarEventoTeclado(tecla, evento)
-    window.addEventListener(KEYDOWN, manejador)
+    window.addEventListener(EVENTO.TECLADO.KEYDOWN, manejador)
     manejadores.push(manejador)
   }
 
@@ -27,6 +27,6 @@ export const registrarEventosTeclado = (
 
 export const retirarEventosTeclado = (manejadores: TipoLlamadaEvento[]) => {
   for (const manejador of manejadores) {
-    window.removeEventListener(KEYDOWN, manejador)
+    window.removeEventListener(EVENTO.TECLADO.KEYDOWN, manejador)
   }
 }

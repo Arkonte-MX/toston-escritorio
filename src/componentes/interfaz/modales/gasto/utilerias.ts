@@ -1,15 +1,42 @@
-// TODO: OBTENER DATOS DESDE INDEXEDDB O API
-export const obtenerOpcionesTipoGasto = () => [
+import {
+  InterfazPeriodicidadGasto,
+  InterfazTipoGasto,
+} from '../../../../esquema/gasto'
+
+/**
+ * TODO
+ *
+ * OBTENER ESTOS DATOS DESDE INDEXEDDB O UNA API
+ *
+ */
+
+export const obtenerOpcionesTipoGasto = (): InterfazTipoGasto[] => [
   {
-    ETIQUETA: 'Selecciona una opción',
-    VALOR: '',
+    id: 1,
+    nombre: 'Gasto Fijo',
   },
   {
-    ETIQUETA: 'Gasto Fijo',
-    VALOR: 'fijo',
-  },
-  {
-    ETIQUETA: 'Gasto Variable',
-    VALOR: 'variable',
+    id: 2,
+    nombre: 'Gasto Variable',
   },
 ]
+
+export const obtenerOpcionesPeriodicidadGasto =
+  (): InterfazPeriodicidadGasto[] => [
+    {
+      id: 1,
+      nombre: 'Día',
+    },
+    {
+      id: 2,
+      nombre: 'Semana',
+    },
+    {
+      id: 3,
+      nombre: 'Mes',
+    },
+    {
+      id: 4,
+      nombre: 'Año',
+    },
+  ]

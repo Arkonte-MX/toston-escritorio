@@ -31,36 +31,42 @@ export type TipoBotonContextualizado = {
 export type TipoCampo = {
   campo: string
   etiqueta: string
-  error?: string
   children: JSX.Element
-}
-
-export type TipoCampoNumerico = {
-  campo: string
-  etiqueta: string
-  valor: number
-  onChange: TipoLlamadaEvento
   error?: string
-  minimo?: number
-  maximo?: number
-  incrementos?: string
-  ejemplo?: string
+  Icono?: JSX.Element
 }
 
 export type TipoCampoTextoCorto = {
   campo: string
   etiqueta: string
-  valor: string
+  dato: string
   onChange: TipoLlamadaEvento
+  ejemplo: string
+  caracteres: number
   error?: string
-  ejemplo?: string
+  Icono?: JSX.Element
+}
+
+export type TipoCampoNumerico = {
+  campo: string
+  etiqueta: string
+  dato: number
+  onChange: TipoLlamadaEvento
+  minimo: number
+  maximo: number
+  incrementos: string
+  ejemplo: string
+  caracteres: number
+  error?: string
+  Icono?: JSX.Element
 }
 
 export type TipoCampoListaDesplegable = {
   campo: string
   etiqueta: string
-  valor: string
+  dato: string
   onChange: TipoLlamadaEvento
-  error?: string
   children: ReactNode
+  error?: string
+  Icono?: JSX.Element
 }

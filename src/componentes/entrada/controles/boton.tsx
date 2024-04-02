@@ -1,4 +1,4 @@
-import { TEXTO_VACIO } from '../../../compartido/constantes'
+import { TEXTO } from '../../../compartido/constantes'
 
 import { TIPO_BOTON, TipoBoton, TipoBotonContextualizado } from './tipos'
 import { COLOR } from '../constantes'
@@ -8,12 +8,12 @@ const Boton = ({
   etiqueta,
   descripcion,
   onClick,
-  className = TEXTO_VACIO,
+  className = TEXTO.VACIO,
   Icono,
   tipo = TIPO_BOTON.BOTON,
 }: TipoBoton) => (
   <button
-    id={`id_boton_${nombre.trim().toLocaleLowerCase().replace(/\s/, TEXTO_VACIO)}`}
+    id={`id_boton_${nombre.trim().toLocaleLowerCase().replace(/\s/, TEXTO.VACIO)}`}
     name={nombre}
     aria-label={etiqueta}
     onClick={onClick}
@@ -27,9 +27,9 @@ const Boton = ({
 
 export const BotonNeutral = ({
   onClick,
-  nombre = TEXTO_VACIO,
-  etiqueta = TEXTO_VACIO,
-  descripcion = TEXTO_VACIO,
+  nombre = TEXTO.VACIO,
+  etiqueta = TEXTO.VACIO,
+  descripcion = TEXTO.VACIO,
   className,
   Icono,
 }: TipoBotonContextualizado) => (
@@ -48,7 +48,7 @@ export const BotonContinuar = ({
   nombre = 'Continuar',
   etiqueta = 'Continuar al siguiente paso',
   descripcion = 'Haz clic para memorizar tu avance y continuar con el siguiente paso',
-  className = TEXTO_VACIO,
+  className = TEXTO.VACIO,
   Icono,
 }: TipoBotonContextualizado) => (
   <Boton
@@ -66,7 +66,7 @@ export const BotonFinalizar = ({
   nombre = 'Finalizar',
   etiqueta = 'Concluir el proceso',
   descripcion = 'Haz clic para completar el proceso y guardar los cambios realizados',
-  className = TEXTO_VACIO,
+  className = TEXTO.VACIO,
   Icono,
 }: TipoBotonContextualizado) => (
   <Boton
@@ -85,7 +85,7 @@ export const BotonCancelar = ({
   nombre = 'Cancelar',
   etiqueta = 'Cancelar el proceso',
   descripcion = 'Haz clic para anular el proceso y limpiar los cambios que no has guardado',
-  className = TEXTO_VACIO,
+  className = TEXTO.VACIO,
   Icono,
 }: TipoBotonContextualizado) => (
   <Boton

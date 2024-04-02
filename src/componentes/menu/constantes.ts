@@ -1,4 +1,4 @@
-import { TEXTO_VACIO } from '../../compartido/constantes'
+import { TEXTO } from '../../compartido/constantes'
 
 export const COLOR = {
   MENU: {
@@ -20,7 +20,7 @@ export const CURSOR = {
       DESHABILITADA: 'cursor-context-menu',
     },
     ELEMENTO: {
-      ACTIVO: TEXTO_VACIO,
+      ACTIVO: TEXTO.VACIO,
       INACTIVO: 'cursor-pointer',
     },
   },

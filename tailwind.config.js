@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss')
+
 /**
  * ALGUNOS COMPONENTES APLICAN CLASSES DE FORMA DINÁMICA
  * ESTO PROVOCA QUE TAILWIND NO ENCUENTRE DICHAS CLASES, Y
@@ -35,6 +37,9 @@ module.exports = {
     },
     {
       pattern: /p(x|y)-(2|3)/,
+    },
+    {
+      pattern: /appearance-none/,
     },
   ],
   theme: {},
