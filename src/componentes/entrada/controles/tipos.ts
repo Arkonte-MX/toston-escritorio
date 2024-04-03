@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { IconType } from 'react-icons'
 
 import { TipoLlamadaEvento } from '../../../compartido/tipos'
+import { InterfazDato } from '../../../esquema/dato'
 
 export enum TIPO_BOTON {
   BOTON = 'button',
@@ -61,12 +62,17 @@ export type TipoCampoNumerico = {
   Icono?: JSX.Element
 }
 
-export type TipoCampoListaDesplegable = {
+export type TipoCampoListaDesplegable<T> = {
   campo: string
   etiqueta: string
-  dato: string
+  dato: T
   onChange: TipoLlamadaEvento
   children: ReactNode
   error?: string
   Icono?: JSX.Element
+}
+
+export type TipoOpcionCampoListaDesplegable = {
+  valor: InterfazDato
+  children: string
 }

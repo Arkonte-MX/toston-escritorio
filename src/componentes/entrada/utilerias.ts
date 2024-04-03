@@ -1,4 +1,9 @@
+import { ChangeEvent } from 'react'
+
 import { NUMEROS } from '../../compartido/constantes'
+
+import { InterfazDato } from '../../esquema/dato'
+
 import {
   esCifraValida,
   obtenerCantidadCaracteres,
@@ -24,3 +29,10 @@ export const esCaracteresMontoDentroRango = (
     obtenerCantidadCaracteres(numero) >= minimo
   )
 }
+
+export const serializarValorOpcion = (valor: InterfazDato): string =>
+  JSON.stringify(valor)
+
+export const deserializarValorOpcion = (
+  evento: ChangeEvent<HTMLSelectElement>
+): InterfazDato => JSON.parse(evento?.target?.value || '{}') as InterfazDato

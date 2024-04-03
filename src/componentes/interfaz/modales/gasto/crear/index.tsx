@@ -10,7 +10,10 @@ import GrupoCampo from '../../../../entrada/controles/grupo'
 import CampoTextoCorto from '../../../../entrada/controles/texto'
 import CampoDivisa from '../../../../entrada/controles/divisa'
 import CampoNumerico from '../../../../entrada/controles/numerico'
-import ListaDesplegable from '../../../../entrada/controles/lista'
+import {
+  ListaDesplegable,
+  OpcionLista,
+} from '../../../../entrada/controles/lista'
 
 import { obtenerCantidadCaracteres } from '../../../../../compartido/utilerias/divisa'
 
@@ -24,6 +27,9 @@ import { PiArrowsCounterClockwiseLight } from 'react-icons/pi'
 const MAXIMO_CARACTERES_NOMBRE = VALIDEZ.NOMBRE.MAXIMO
 const MONTO_MAXIMO = VALIDEZ.MONTO.MAXIMO
 const MAXIMO_CARACTERES_MONTO = obtenerCantidadCaracteres(MONTO_MAXIMO)
+
+const UNIDADES_PERIODICIDAD = FORMULARIO.PERIODICIDAD.UNIDAD.obtenerOpciones()
+const TIPOS_GASTO = FORMULARIO.TIPO.obtenerOpciones()
 
 const esquema_formulario = Yup.object().shape({
   nombre: Yup.string()
@@ -57,14 +63,10 @@ const esquema_formulario = Yup.object().shape({
 const valores_iniciales: InterfazGasto = {
   nombre: TEXTO.VACIO,
   monto: NUMEROS.CERO,
-  tipo: {
-    nombre: TEXTO.VACIO,
-  },
+  tipo: TIPOS_GASTO[NUMEROS.CERO],
   periodicidad: {
     cantidad: NUMEROS.CERO,
-    unidad: {
-      nombre: TEXTO.VACIO,
-    },
+    unidad: UNIDADES_PERIODICIDAD[NUMEROS.CERO],
   },
 }
 
@@ -80,17 +82,19 @@ const CrearGasto = ({ cerrar }: TipoModal) => {
     initialValues: valores_iniciales,
     validationSchema: esquema_formulario,
     onSubmit: (valores) => {
-      console.log('onSubmit', valores)
+      console.log('SUBMIT', valores)
     },
   })
 
   const cancelar = () => {
+    console.log('CANCELAR')
     onReset()
     cerrar()
   }
 
   const finalizar = () =>
     esquema_formulario.isValid(valores).then((isValid) => {
+      console.log('FINALIZAR', { valores, errores, isValid })
       if (isValid) {
         onSubmit()
         cerrar()
@@ -139,28 +143,30 @@ const CrearGasto = ({ cerrar }: TipoModal) => {
           <ListaDesplegable
             campo={FORMULARIO.PERIODICIDAD.UNIDAD.CAMPO}
             etiqueta={FORMULARIO.PERIODICIDAD.UNIDAD.ETIQUETA}
-            dato={valores.periodicidad.unidad.nombre}
+            dato={valores.periodicidad.unidad}
             onChange={onChange}
             error={errores.periodicidad?.unidad?.nombre}
             Icono={<GoStopwatch />}>
-            {FORMULARIO.PERIODICIDAD.UNIDAD.OPCIONES.map((opcion) => (
-              <option key={`periodicidad_gasto_${opcion.id}`} value={opcion.id}>
+            {UNIDADES_PERIODICIDAD.map((opcion) => (
+              <OpcionLista
+                key={`periodicidad_gasto_${opcion.id}`}
+                valor={opcion}>
                 {opcion.nombre}
-              </option>
+              </OpcionLista>
             ))}
           </ListaDesplegable>
         </GrupoCampo>
         <ListaDesplegable
           campo={FORMULARIO.TIPO.CAMPO}
           etiqueta={FORMULARIO.TIPO.ETIQUETA}
-          dato={valores.tipo.nombre}
+          dato={valores.tipo}
           onChange={onChange}
           error={errores.tipo?.nombre}
           Icono={<SlGraph />}>
-          {FORMULARIO.TIPO.OPCIONES.map((opcion) => (
-            <option key={`tipo_gasto_${opcion.id}`} value={opcion.id}>
+          {TIPOS_GASTO.map((opcion) => (
+            <OpcionLista key={`tipo_gasto_${opcion.id}`} valor={opcion}>
               {opcion.nombre}
-            </option>
+            </OpcionLista>
           ))}
         </ListaDesplegable>
       </>

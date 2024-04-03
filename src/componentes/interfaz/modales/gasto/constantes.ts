@@ -48,7 +48,7 @@ export const FORMULARIO = {
   TIPO: {
     CAMPO: 'tipo',
     ETIQUETA: 'Tipo',
-    OPCIONES: obtenerOpcionesTipoGasto(),
+    obtenerOpciones: () => obtenerOpcionesTipoGasto(),
   },
   PERIODICIDAD: {
     /**
@@ -70,7 +70,7 @@ export const FORMULARIO = {
     UNIDAD: {
       CAMPO: 'periodicidad.unidad',
       ETIQUETA: TEXTO.VACIO,
-      OPCIONES: obtenerOpcionesPeriodicidadGasto(),
+      obtenerOpciones: () => obtenerOpcionesPeriodicidadGasto(),
     },
   },
 } as const

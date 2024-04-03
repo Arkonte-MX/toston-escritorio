@@ -1,5 +1,5 @@
 import {
-  InterfazPeriodicidadGasto,
+  InterfazPeriodicidadUnidadGasto,
   InterfazTipoGasto,
 } from '../../../../esquema/gasto'
 
@@ -22,7 +22,7 @@ export const obtenerOpcionesTipoGasto = (): InterfazTipoGasto[] => [
 ]
 
 export const obtenerOpcionesPeriodicidadGasto =
-  (): InterfazPeriodicidadGasto[] => [
+  (): InterfazPeriodicidadUnidadGasto[] => [
     {
       id: 1,
       nombre: 'Día',

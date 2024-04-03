@@ -1,11 +1,23 @@
-import { ESTILO } from '../constantes'
-import { obtenerColorBordeCampo } from '../utilerias'
+import { ChangeEvent } from 'react'
 
-import { TipoCampoListaDesplegable } from './tipos'
+import { InterfazDato } from '../../../esquema/dato'
+
+import { ESTILO } from '../constantes'
+
+import {
+  deserializarValorOpcion,
+  obtenerColorBordeCampo,
+  serializarValorOpcion,
+} from '../utilerias'
+
+import {
+  TipoCampoListaDesplegable,
+  TipoOpcionCampoListaDesplegable,
+} from './tipos'
 
 import Campo from './campo'
 
-const ListaDesplegable = ({
+export const ListaDesplegable = ({
   campo,
   etiqueta,
   dato,
@@ -13,16 +25,31 @@ const ListaDesplegable = ({
   children,
   error,
   Icono,
-}: TipoCampoListaDesplegable) => (
-  <Campo campo={campo} etiqueta={etiqueta} error={error} Icono={Icono}>
-    <select
-      name={campo}
-      value={dato}
-      onChange={onChange}
-      className={`bg-white ${ESTILO.CAMPO} ${obtenerColorBordeCampo(!!error)}`}>
-      {children}
-    </select>
-  </Campo>
-)
+}: TipoCampoListaDesplegable<InterfazDato>) => {
+  const actualizar = (evento: ChangeEvent<HTMLSelectElement>) =>
+    onChange({
+      target: {
+        name: campo,
+        value: deserializarValorOpcion(evento),
+      },
+    })
 
-export default ListaDesplegable
+  return (
+    <Campo campo={campo} etiqueta={etiqueta} error={error} Icono={Icono}>
+      <select
+        name={campo}
+        value={serializarValorOpcion(dato)}
+        onChange={actualizar}
+        className={`bg-white ${ESTILO.CAMPO} ${obtenerColorBordeCampo(!!error)}`}>
+        {children}
+      </select>
+    </Campo>
+  )
+}
+
+export const OpcionLista = ({
+  valor,
+  children: etiqueda,
+}: TipoOpcionCampoListaDesplegable) => (
+  <option value={serializarValorOpcion(valor)}>{etiqueda}</option>
+)
