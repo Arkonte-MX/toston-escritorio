@@ -62,7 +62,7 @@ export type TipoCampoNumerico = {
   Icono?: JSX.Element
 }
 
-export type TipoCampoListaDesplegable<T> = {
+export type TipoCampoSeleccion<T> = {
   campo: string
   etiqueta: string
   dato: T
@@ -72,7 +72,17 @@ export type TipoCampoListaDesplegable<T> = {
   Icono?: JSX.Element
 }
 
-export type TipoOpcionCampoListaDesplegable = {
+export type TipoOpcionSeleccion = {
   valor: InterfazDato
   children: string
+}
+
+export type TipoCampoLista = {
+  children: ReactNode
+}
+
+export type TipoElementoLista = {
+  titulo: JSX.Element
+  contenido: JSX.Element
+  complemento: JSX.Element
 }

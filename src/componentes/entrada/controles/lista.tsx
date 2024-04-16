@@ -1,55 +1,27 @@
-import { ChangeEvent } from 'react'
+import { TipoCampoLista, TipoElementoLista } from './tipos'
 
-import { InterfazDato } from '../../../esquema/dato'
+export const Lista = ({ children }: TipoCampoLista) => (
+  <div className="flow-root">
+    <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+      {children}
+    </ul>
+  </div>
+)
 
-import { ESTILO } from '../constantes'
-
-import {
-  deserializarValorOpcion,
-  obtenerColorBordeCampo,
-  serializarValorOpcion,
-} from '../utilerias'
-
-import {
-  TipoCampoListaDesplegable,
-  TipoOpcionCampoListaDesplegable,
-} from './tipos'
-
-import Campo from './campo'
-
-export const ListaDesplegable = ({
-  campo,
-  etiqueta,
-  dato,
-  onChange,
-  children,
-  error,
-  Icono,
-}: TipoCampoListaDesplegable<InterfazDato>) => {
-  const actualizar = (evento: ChangeEvent<HTMLSelectElement>) =>
-    onChange({
-      target: {
-        name: campo,
-        value: deserializarValorOpcion(evento),
-      },
-    })
-
-  return (
-    <Campo campo={campo} etiqueta={etiqueta} error={error} Icono={Icono}>
-      <select
-        name={campo}
-        value={serializarValorOpcion(dato)}
-        onChange={actualizar}
-        className={`bg-white ${ESTILO.CAMPO} ${obtenerColorBordeCampo(!!error)}`}>
-        {children}
-      </select>
-    </Campo>
-  )
-}
-
-export const OpcionLista = ({
-  valor,
-  children: etiqueda,
-}: TipoOpcionCampoListaDesplegable) => (
-  <option value={serializarValorOpcion(valor)}>{etiqueda}</option>
+export const ElementoLista = ({
+  titulo,
+  contenido,
+  complemento,
+}: TipoElementoLista) => (
+  <li className="py-3 border-b border-gray-200">
+    <div className="flex items-center space-x-4">
+      <div className="flex-1 min-w-0">
+        <p className="text-md font-medium">{titulo}</p>
+        <p className="text-xs">{contenido}</p>
+      </div>
+      <div className="inline-flex items-center text-base text-sm">
+        {complemento}
+      </div>
+    </div>
+  </li>
 )

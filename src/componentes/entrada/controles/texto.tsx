@@ -8,11 +8,11 @@ const CampoTextoCorto = ({
   campo,
   etiqueta,
   dato,
-  error,
   onChange,
   ejemplo,
-  Icono,
   caracteres,
+  error,
+  Icono,
 }: TipoCampoTextoCorto) => (
   <Campo campo={campo} etiqueta={etiqueta} error={error} Icono={Icono}>
     <input

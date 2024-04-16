@@ -5,7 +5,7 @@ type TipoGrupoCampo = {
 }
 
 const GrupoCampo = ({ children }: TipoGrupoCampo) => (
-  <div className="flex space-x-4 mr-2">{children}</div>
+  <div className="flex space-x-4">{children}</div>
 )
 
 export default GrupoCampo

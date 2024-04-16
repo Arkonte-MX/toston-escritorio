@@ -54,7 +54,7 @@ const Pasos = ({ children, onCancel, onFinish }: TipoPasos) => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-grow overflow-auto">{Paso}</div>
+      <div className="flex-grow overflow-auto pt-2 py-4">{Paso}</div>
       <div className="h-auto">
         <div className="flex justify-between items-center">
           <div className="flex space-x-2">

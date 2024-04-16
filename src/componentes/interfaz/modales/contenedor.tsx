@@ -58,7 +58,7 @@ const ContenedorModal = ({
               {descripcion ?? descripcion}
             </blockquote>
 
-            <div className="flex-grow overflow-y-auto pl-5 pr-5 mt-4">
+            <div className="flex-grow overflow-y-auto pl-5 pr-5 pt-1">
               {children}
             </div>
 

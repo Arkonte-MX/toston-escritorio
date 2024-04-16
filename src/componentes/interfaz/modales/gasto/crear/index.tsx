@@ -11,9 +11,11 @@ import CampoTextoCorto from '../../../../entrada/controles/texto'
 import CampoDivisa from '../../../../entrada/controles/divisa'
 import CampoNumerico from '../../../../entrada/controles/numerico'
 import {
-  ListaDesplegable,
-  OpcionLista,
-} from '../../../../entrada/controles/lista'
+  CampoSeleccion,
+  OpcionSeleccion,
+} from '../../../../entrada/controles/seleccion'
+
+import { Lista, ElementoLista } from '../../../../entrada/controles/lista'
 
 import { obtenerCantidadCaracteres } from '../../../../../compartido/utilerias/divisa'
 
@@ -101,6 +103,34 @@ const CrearGasto = ({ cerrar }: TipoModal) => {
       }
     })
 
+  const personas = [
+    {
+      titulo: <span>Juan Pérez</span>,
+      contenido: <span>13.27%</span>,
+      complemento: <strong>$1,500.00</strong>,
+    },
+    {
+      titulo: <span>María González</span>,
+      contenido: <span>28.32%</span>,
+      complemento: <strong>$3,200.00</strong>,
+    },
+    {
+      titulo: <span>Carlos Herrera</span>,
+      contenido: <span>18.58%</span>,
+      complemento: <strong>$2,100.00</strong>,
+    },
+    {
+      titulo: <span>Ana Mendoza</span>,
+      contenido: <span>15.93%</span>,
+      complemento: <strong>$1,800.00</strong>,
+    },
+    {
+      titulo: <span>Luis Guzmán</span>,
+      contenido: <span>23.89%</span>,
+      complemento: <strong>$2,700.00</strong>,
+    },
+  ]
+
   return (
     <Pasos onCancel={cancelar} onFinish={finalizar}>
       <>
@@ -140,7 +170,7 @@ const CrearGasto = ({ cerrar }: TipoModal) => {
             error={errores.periodicidad?.cantidad}
             Icono={<PiArrowsCounterClockwiseLight />}
           />
-          <ListaDesplegable
+          <CampoSeleccion
             campo={FORMULARIO.PERIODICIDAD.UNIDAD.CAMPO}
             etiqueta={FORMULARIO.PERIODICIDAD.UNIDAD.ETIQUETA}
             dato={valores.periodicidad.unidad}
@@ -148,15 +178,15 @@ const CrearGasto = ({ cerrar }: TipoModal) => {
             error={errores.periodicidad?.unidad?.nombre}
             Icono={<GoStopwatch />}>
             {UNIDADES_PERIODICIDAD.map((opcion) => (
-              <OpcionLista
+              <OpcionSeleccion
                 key={`periodicidad_gasto_${opcion.id}`}
                 valor={opcion}>
                 {opcion.nombre}
-              </OpcionLista>
+              </OpcionSeleccion>
             ))}
-          </ListaDesplegable>
+          </CampoSeleccion>
         </GrupoCampo>
-        <ListaDesplegable
+        <CampoSeleccion
           campo={FORMULARIO.TIPO.CAMPO}
           etiqueta={FORMULARIO.TIPO.ETIQUETA}
           dato={valores.tipo}
@@ -164,11 +194,24 @@ const CrearGasto = ({ cerrar }: TipoModal) => {
           error={errores.tipo?.nombre}
           Icono={<SlGraph />}>
           {TIPOS_GASTO.map((opcion) => (
-            <OpcionLista key={`tipo_gasto_${opcion.id}`} valor={opcion}>
+            <OpcionSeleccion key={`tipo_gasto_${opcion.id}`} valor={opcion}>
               {opcion.nombre}
-            </OpcionLista>
+            </OpcionSeleccion>
           ))}
-        </ListaDesplegable>
+        </CampoSeleccion>
+      </>
+      <>
+        <div className="p-2">
+          <Lista>
+            {personas.map((elemento) => (
+              <ElementoLista
+                titulo={elemento.titulo}
+                contenido={elemento.contenido}
+                complemento={elemento.complemento}
+              />
+            ))}
+          </Lista>
+        </div>
       </>
     </Pasos>
   )

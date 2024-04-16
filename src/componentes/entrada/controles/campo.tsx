@@ -6,7 +6,7 @@ import { TipoCampo } from './tipos'
 const Campo = ({ campo, etiqueta, error, Icono, children }: TipoCampo) => (
   <div
     id={`id_campo_${campo.trim().toLocaleLowerCase().replace(/\s/, TEXTO.VACIO)}`}
-    className="flex-grow mx-2 mt-2">
+    className="flex-grow">
     <div className="relative h-10 w-full min-w-xs">
       <div className="absolute top-1/2 right-7 -translate-y-1/2">{Icono}</div>
       {children}
